@@ -1,156 +1,11 @@
-const productos = [
-    {
-        id: "low-01",
-        titulo: "Sneakers Low 01",
-        imagen: "./img/forum-low/zapatillas-forum-low-1.png",
-        categoria: {
-            nombre: "Sneakers Low",
-            id: "low"
-        },
-        precio: 5500
-    },
-    {
-        id: "low-02",
-        titulo: "Sneakers Low 02",
-        imagen: "./img/forum-low/zapatillas-forum-low-2.png",
-        categoria: {
-            nombre: "Sneakers Low",
-            id: "low"
-        },
-        precio: 5500
-    },
-    {
-        id: "low-03",
-        titulo: "Sneakers Low 03",
-        imagen: "./img/forum-low/zapatillas-forum-low-3.png",
-        categoria: {
-            nombre: "Sneakers Low",
-            id: "low"
-        },
-        precio: 5500
-    },
-    {
-        id: "low-04",
-        titulo: "Sneakers Low 04",
-        imagen: "./img/forum-low/zapatillas-forum-low-4.png",
-        categoria: {
-            nombre: "Sneakers Low",
-            id: "low"
-        },
-        precio: 5500
-    },
-    {
-        id: "mid-01",
-        titulo: "Sneakers Mid 01",
-        imagen: "./img/forum-mid/zapatillas-forum-mid-1.png",
-        categoria: {
-            nombre: "Sneakers Mid",
-            id: "mid"
-        },
-        precio: 10000
-    },
-    {
-        id: "mid-02",
-        titulo: "Sneakers Mid 02",
-        imagen: "./img/forum-mid/zapatillas-forum-mid-2.png",
-        categoria: {
-            nombre: "Sneakers Mid",
-            id: "mid"
-        },
-        precio: 10000
-    },
-    {
-        id: "mid-03",
-        titulo: "Sneakers Mid 03",
-        imagen: "./img/forum-mid/zapatillas-forum-mid-3.png",
-        categoria: {
-            nombre: "Sneakers Mid",
-            id: "mid"
-        },
-        precio: 10000
-    },
-    {
-        id: "mid-04",
-        titulo: "Sneakers Mid 04",
-        imagen: "./img/forum-mid/zapatillas-forum-mid-4.png",
-        categoria: {
-            nombre: "Sneakers Mid",
-            id: "mid"
-        },
-        precio: 10000
-    },
-    {
-        id: "mid-05",
-        titulo: "Sneakers Mid 05",
-        imagen: "./img/forum-mid/zapatillas-forum-mid-5.png",
-        categoria: {
-            nombre: "Sneakers Mid",
-            id: "mid"
-        },
-        precio: 10000
-    },
-    {
-        id: "running-01",
-        titulo: "Running 1",
-        imagen: "./img/running/zapatillas-forum-run-1.png",
-        categoria: {
-            nombre: "Runinng",
-            id: "running"
-        },
-        precio: 7500
-    },
-    {
-        id: "running-02",
-        titulo: "Running 2",
-        imagen: "./img/running/zapatillas-forum-run-2.png",
-        categoria: {
-            nombre: "Runinng",
-            id: "running"
-        },
-        precio: 7500
-    },
-    {
-        id: "running-03",
-        titulo: "Running 3",
-        imagen: "./img/running/zapatillas-forum-run-3.png",
-        categoria: {
-            nombre: "Runinng",
-            id: "running"
-        },
-        precio: 7500
-    },
-    {
-        id: "running-04",
-        titulo: "Running 4",
-        imagen: "./img/running/zapatillas-forum-run-4.png",
-        categoria: {
-            nombre: "Runinng",
-            id: "running"
-        },
-        precio: 7500
-    },
-    {
-        id: "running-05",
-        titulo: "Running 5",
-        imagen: "./img/running/zapatillas-forum-run-5.png",
-        categoria: {
-            nombre: "Runinng",
-            id: "running"
-        },
-        precio: 7500
-    },
-    {
-        id: "running-06",
-        titulo: "Running 6",
-        imagen: "./img/running/zapatillas-forum-run-6.png",
-        categoria: {
-            nombre: "Runinng",
-            id: "running"
-        },
-        precio: 7500
-    },
+let productos = [];
 
-];
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategoria = document.querySelectorAll(".boton-categoria");
@@ -179,18 +34,18 @@ function cargarProductos(productosElegidos) {
 }
 cargarProductos(productos);
 
-botonesCategoria.forEach(boton =>{
+botonesCategoria.forEach(boton => {
     boton.addEventListener("click", (e) => {
         botonesCategoria.forEach(boton => boton.classList.remove("active"));
         e.currentTarget.classList.add("active");
 
         if (e.currentTarget.id != "todos") {
-            const productosBoton = productos.filter(producto  => producto.categoria.id === e.currentTarget.id);
+            const productosBoton = productos.filter(productos => productos.categoria.id === e.currentTarget.id);
             cargarProductos(productosBoton);
 
             const productosCategoria = productos.find(productos => productos.categoria.id === e.currentTarget.id);
             tituloPrincipal.innerText = productosCategoria.categoria.nombre;
-        } else{
+        } else {
             tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(productos);
         }
@@ -220,13 +75,31 @@ if (productosEnCarritoLS) {
 
 function agregarAlCarrito(e) {
 
+    Toastify({
+        text: "Producto agregado!",
+        duration: 3000,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+                background: "linear-gradient(to right, #0F1026, #0F1026)",
+                borderRadius: '2rem'
+            },
+            offset: {
+                x: '1rem',
+                y: '1rem'
+            }, 
+            onClick: function () { } // Callback after click
+        }).showToast();
+
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(productos => productos.id === idBoton);
 
     if (productosEnCarrito.some(productos => productos.id === idBoton)) {
         const index = productosEnCarrito.findIndex(productos => productos.id === idBoton);
         productosEnCarrito[index].cantidad++;
-    } else{
+    } else {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
     }
