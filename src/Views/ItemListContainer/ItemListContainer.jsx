@@ -21,7 +21,6 @@ export default function ItemListContainer() {
 
     return (
         <div className="item-list-container">
-            <h2>Welcome!!</h2>
             <ItemList products={products} /> 
         </div>
     );

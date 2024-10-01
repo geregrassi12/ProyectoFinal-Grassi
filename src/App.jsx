@@ -2,8 +2,6 @@ import './App.css';
 import NavBar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './Views/ItemListContainer/ItemListContainer';
-import ForumMid from './Views/mid/mid';
-import ItemContainer from './Views/ItemContainer/ItemContainer';
 import ItemDetailContainer from './Views/ItemDetailContainer/ItemDetailContainer';
 
 
