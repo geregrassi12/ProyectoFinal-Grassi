@@ -12,8 +12,8 @@ export default function NavBar() {
         </div>
         <ul className='menu'>
             <button  className='btn'><Link to={'/'}>Home</Link></button>
-            <button  className='btn'><Link to={'/forums-low'}>Forum Low</Link></button>
-            <button className='btn'><Link to={'/contact'}>Contact</Link></button>
+            <button  className='btn'><Link to={'/category/low'}>Forum Low</Link></button>
+            <button className='btn'><Link to={'/category/mid'}>Forum Mid</Link></button>
         </ul>
         <CartWidget/>
         </header>

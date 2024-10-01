@@ -31,6 +31,22 @@ const products = [
         price: '15500',
         description: 'Talles: 39, 40 y 42',
     },
+    {
+        id: "5",
+        tittle: "Sneakers Mid 01",
+        image: "../img/zapatillas-forum-low-1.png",
+        category: 'mid',
+        price: '15500',
+        description: 'Talles: 38, 40 y 44',
+    },
+    {
+        id: "6",
+        tittle: "Sneakers Mid 02",
+        image: "../img/zapatillas-forum-mid-2.png",
+        category: 'mid',
+        price: '15500',
+        description: 'Talles: 44, 43 y 42',
+    },
 ];
 
 export const getProducts = new Promise((resolve) => {
@@ -45,6 +61,6 @@ export const getProduct = (id) => {
 
 
 
-export const getCatgory = (category) => {
-    return products.filter((product) => product.category === category)
+export const getCategory = (category) => {
+    return products.filter((product) => product.category === category);
 }
