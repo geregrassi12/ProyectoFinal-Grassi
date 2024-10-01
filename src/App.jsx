@@ -1,25 +1,26 @@
-import './App.css'
-import NavBar from './components/Navbar'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HomeView from './Views/HomeView/HomeView';
+import './App.css';
+import NavBar from './components/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemListContainer from './Views/ItemListContainer/ItemListContainer';
 import ForumLow from './Views/ForumLow/ForumLow';
-import ForumMid from './Views/ForumMid/ForumMid';
+import Contact from './Views/Contact/Contact';
+import ItemDetailContainer from './Views/ItemDetailContainer/ItemDetailContainer';
+
 
 function App() {
   return (
-    <>
     <BrowserRouter>
-    <div className="App">
-      <NavBar />
-      <Routes>
-        <Route exact path='/' element={<HomeView/>} />
-        <Route exact path='/forum-low' element={<ForumLow/>} />
-        <Route exact path='/forum-mid' element={<ForumMid/>} />
-      </Routes>
+        <NavBar />
+        <div className="app">
+        <Routes>
+          <Route path="/" element={<ItemListContainer/>} />
+          <Route path="/forums-low" element={<ForumLow />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path='/forum-low/:id' element={<ItemDetailContainer/>} />
+        </Routes>
       </div>
     </BrowserRouter>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

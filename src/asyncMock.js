@@ -10,7 +10,7 @@ const products = [
     {
         id: "2",
         tittle: "Sneakers Low 02",
-        image: "../img/forum-low/zapatillas-forum-low-2.png",
+        image: "../img/zapatillas-forum-low-2.png",
         category: 'low',
         price: '5000',
         description: 'Talles: 40, 41 y 45',
@@ -18,26 +18,18 @@ const products = [
     {
         id: "3",
         tittle: "Sneakers Low 03",
-        image: "../img/forum-low/zapatillas-forum-low-3.png",
+        image: "../img/zapatillas-forum-low-3.png",
         category: 'low',
         price: '7500',
         description: 'Talles: 40, 42 y 43',
     },
     {
         id: "4",
-        tittle: "Sneakers Mid 01",
-        image: "../img/forum-low/zapatillas-forum-mid-1.png",
-        category: 'mid',
+        tittle: "Sneakers Low 04",
+        image: "../img/zapatillas-forum-low-4.png",
+        category: 'low',
         price: '15500',
         description: 'Talles: 39, 40 y 42',
-    },
-    {
-        id: "5",
-        tittle: "Sneakers Mid 02",
-        image: "../img/forum-low/zapatillas-forum-mid-2.png",
-        category: 'mid',
-        price: '13500',
-        description: 'Talles: 42, 44 y 45',
     },
 ];
 

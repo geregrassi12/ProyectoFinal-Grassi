@@ -1,5 +1,5 @@
 export default function ForumMid(){
     return(<>
-    <div><h2>Forum Mid</h2></div>
+    <div><h2>Contact</h2></div>
     </>)
 }

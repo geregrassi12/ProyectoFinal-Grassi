@@ -2,9 +2,12 @@
   background-color: black;
   height: 100vh;
   width: 100%;
+  scroll-behavior: smooth;
 }
 
-
+.app {
+  margin-top: 3rem;
+}
 
 *{
   margin: 0;
@@ -15,6 +18,8 @@
 h1, h2, h3, h4, h5, p, a, input, ul, li{
   margin: 0;
   padding: 0;
+  text-align: center;
+  color: white;
 }
 
 ul{
@@ -24,3 +29,4 @@ ul{
   margin: 0;
   display: flex;
 }
+
