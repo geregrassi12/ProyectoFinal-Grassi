@@ -7,7 +7,8 @@ import ItemCount from "./ItemCount";
 
 
 
-export default function ItemDetailContainer( {item} )  {
+export default function ItemDetail()  {
+
     const [product, setProduct]=useState({});
 
     const { id } = useParams();
@@ -16,8 +17,7 @@ export default function ItemDetailContainer( {item} )  {
         setProduct(getProduct(id))
     }, []);
 
-    const { carrito, setCarrito } = useContext(CartContext);
-    console.log(carrito)    
+    const { carrito, handleAgregar } = useContext(CartContext);
 
     const [cantidad, setCantidad] = useState(1);
 
@@ -28,9 +28,6 @@ export default function ItemDetailContainer( {item} )  {
     const handleSumar = () => {
         cantidad < product.stock && setCantidad (cantidad + 1)
     }
-    const handleAgregar = () => {
-        console.log({...item, cantidad } );
-    }
 return (
     <>
     <article className="product">
@@ -38,7 +35,11 @@ return (
         <h2>{product.tittle} - {product.category}</h2>
         <p>Description: {product.description}</p>
         <p>$ {product.price}</p>
-        <ItemCount cantidad={cantidad} handleRestar={handleRestar} handleSumar={handleSumar} handleAgregar={handleAgregar}/>
+        <ItemCount 
+            cantidad={cantidad} 
+            handleRestar={handleRestar} 
+            handleSumar={handleSumar} 
+            handleAgregar={() => {handleAgregar(product, cantidad)}}/>
     </article>
     </>
     );

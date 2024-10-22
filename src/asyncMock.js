@@ -53,60 +53,6 @@ const products = [
         description: 'Talles: 44, 43 y 42',
         stock: 10
     },
-    {
-        id: "5",
-        tittle: "Sneakers Mid 01",
-        image: "../img/zapatillas-forum-low-1.png",
-        category: 'mid',
-        price: '15500',
-        description: 'Talles: 38, 40 y 44',
-        stock: 10
-    },
-    {
-        id: "6",
-        tittle: "Sneakers Mid 02",
-        image: "../img/zapatillas-forum-mid-2.png",
-        category: 'mid',
-        price: '15500',
-        description: 'Talles: 44, 43 y 42',
-        stock: 10
-    },
-    {
-        id: "5",
-        tittle: "Sneakers Mid 01",
-        image: "../img/zapatillas-forum-low-1.png",
-        category: 'mid',
-        price: '15500',
-        description: 'Talles: 38, 40 y 44',
-        stock: 10
-    },
-    {
-        id: "6",
-        tittle: "Sneakers Mid 02",
-        image: "../img/zapatillas-forum-mid-2.png",
-        category: 'mid',
-        price: '15500',
-        description: 'Talles: 44, 43 y 42',
-        stock: 10
-    },
-    {
-        id: "5",
-        tittle: "Sneakers Mid 01",
-        image: "../img/zapatillas-forum-low-1.png",
-        category: 'mid',
-        price: '15500',
-        description: 'Talles: 38, 40 y 44',
-        stock: 10
-    },
-    {
-        id: "6",
-        tittle: "Sneakers Mid 02",
-        image: "../img/zapatillas-forum-mid-2.png",
-        category: 'mid',
-        price: '15500',
-        description: 'Talles: 44, 43 y 42',
-        stock: 10
-    },
 ];
 
 export const getProducts = new Promise((resolve) => {
