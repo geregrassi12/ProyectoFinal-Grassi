@@ -3,10 +3,14 @@ import NavBar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './Views/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Views/ItemDetailContainer/ItemDetailContainer';
+import { CartContext } from './context/CartContext';
+import { useState } from 'react';
 
 
 function App() {
+  const [ carrito, setCarrito ] = useState([])
   return (
+    <CartContext.Provider value={ { carrito, setCarrito} }>
     <BrowserRouter>
         <NavBar />
         <div className="app">
@@ -17,6 +21,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </CartContext.Provider>
   );
 }
 
