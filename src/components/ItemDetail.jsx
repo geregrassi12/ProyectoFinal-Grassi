@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../asyncMock";
 import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
+import { db } from "../firebase/config"
+import { doc, getDoc} from "firebase/firestore"
 
 
 
@@ -14,7 +15,15 @@ export default function ItemDetail()  {
     const { id } = useParams();
 
     useEffect (() => {
-        setProduct(getProduct(id))
+        
+        const docRef = doc( db, "products", id)
+        getDoc(docRef)
+            .then((resp) => {
+                setProduct(
+                    { ...resp.data(), id: resp.id}
+                )
+            })
+
     }, []);
 
     const { carrito, handleAgregar } = useContext(CartContext);
