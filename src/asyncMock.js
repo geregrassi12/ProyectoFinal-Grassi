@@ -38,7 +38,7 @@ const products = [
     {
         id: "5",
         tittle: "Sneakers Mid 01",
-        image: "../img/zapatillas-forum-low-1.png",
+        image: "../img/zapatillas-forum-mid-1.png",
         category: 'mid',
         price: '15500',
         description: 'Talles: 38, 40 y 44',
@@ -70,3 +70,5 @@ export const getProduct = (id) => {
 export const getCategory = (category) => {
     return products.filter((product) => product.category === category);
 }
+
+
