@@ -1,31 +1,28 @@
 {
-  "name": "preentrega1-grassi",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "name": "entregaunograssigeremias",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geregrassi12/EntregaN1-GeremiasGrassi.git"
+  },
+  "author": "Geremias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geregrassi12/EntregaN1-GeremiasGrassi/issues"
+  },
+  "homepage": "https://github.com/geregrassi12/EntregaN1-GeremiasGrassi#readme",
+  "description": "",
   "dependencies": {
-    "firebase": "^11.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "^7.53.1",
-    "react-router-dom": "^6.26.2"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^9.9.0",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^15.9.0",
-    "vite": "^5.4.1"
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "mongoose": "^8.16.4",
+    "mongoose-paginate-v2": "^1.9.1",
+    "socket.io": "^4.8.1"
   }
 }
