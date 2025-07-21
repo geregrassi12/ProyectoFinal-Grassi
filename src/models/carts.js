@@ -5,7 +5,7 @@ const cartSchema = new mongoose.Schema({
     {
       product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Product" // Este string debe ser IGUAL al primer parámetro del model de productos
+        ref: "Product" 
       },
       quantity: {
         type: Number,

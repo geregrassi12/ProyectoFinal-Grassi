@@ -3,7 +3,6 @@ import { ProductModel } from "../models/products.js";
 
 const router = Router();
 
-// GET paginado, filtrado y ordenado
 router.get("/", async (req, res) => {
   try {
     const limit = parseInt(req.query.limit) || 10;
@@ -47,3 +46,51 @@ router.get("/", async (req, res) => {
     res.json({ status: "error", error: error.message });
   }
 });
+
+router.get('/:pid', async (req, res) => {
+  try {
+    const product = await ProductModel.findById(req.params.pid);
+    if (!product) return res.status(404).json({ error: 'Producto no encontrado' });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.post('/', async (req, res) => {
+  try {
+    const product = req.body;
+    const requiredFields = ['title', 'description', 'code', 'price', 'status', 'stock', 'category', 'thumbnails'];
+    for (const field of requiredFields) {
+      if (product[field] === undefined) {
+        return res.status(400).json({ error: `Falta el campo obligatorio: ${field}` });
+      }
+    }
+    const addedProduct = await ProductModel.create(product);
+    res.status(201).json(addedProduct);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.put('/:pid', async (req, res) => {
+  try {
+    const updatedProduct = await ProductModel.findByIdAndUpdate(req.params.pid, req.body, { new: true });
+    if (!updatedProduct) return res.status(404).json({ error: 'Producto no encontrado' });
+    res.json(updatedProduct);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.delete('/:pid', async (req, res) => {
+  try {
+    const deleted = await ProductModel.findByIdAndDelete(req.params.pid);
+    if (!deleted) return res.status(404).json({ error: 'Producto no encontrado' });
+    res.json({ message: 'Producto eliminado correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+export default router;
